@@ -24,6 +24,7 @@ wss.on("connection", function connection(ws) {
       const clientId = data.id;
       clients.set(clientId, ws); // Simpan koneksi WebSocket dengan ID
       console.log(`Client registered with ID: ${clientId}`);
+      clients.get(clientId).send(JSON.stringify({ data }));
     }
   });
 
